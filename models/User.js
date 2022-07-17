@@ -9,13 +9,13 @@ const UserSchema = new Schema({
     },
 
     email: {
-type: String,
-required: 'Password is required',
-Unique: true,
-match: [/.+@.+\..+/]
-},
-thoughts: [{type: Schema.Types.ObjectId, ref: 'Thoughts'}],
-friends: [{type: Schema.Types.ObjectId, ref: 'User'}]
+        type: String,
+        required: 'Password is required',
+        Unique: true,
+        match: [/.+@.+\..+/]
+    },
+    thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thoughts' }],
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 const User = model('User', UserSchema);
