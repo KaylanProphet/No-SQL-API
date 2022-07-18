@@ -41,7 +41,7 @@ const thoughtController = {
     getAllThoughts({ params }, res) {
         Thought.find({})
             .sort({ createdAt: -1 })
-            .then(dbThoughtData => res.jsonThoughtData)
+            .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => {
                 console.log(err);
                 res.sendStatus(400);
@@ -50,7 +50,7 @@ const thoughtController = {
 
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.thoughtId })
-            .then(dbThoughtData => res.jsonThoughtData)
+            .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => {
                 console.log(err);
                 res.sendStatus(400);
