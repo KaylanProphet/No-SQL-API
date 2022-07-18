@@ -1,7 +1,7 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
-    // add comment to pizza
+    // add thought
     addThought({ params, body }, res) {
         Thought.create(body)
             .then(({ _id }) => {
@@ -38,7 +38,7 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
-    getThought({ params }, res) {
+    getAllThoughts({ params }, res) {
         Thought.find({})
             .sort({ createdAt: -1 })
             .then(dbThoughtData => res.jsonThoughtData)
@@ -103,4 +103,4 @@ const thoughtController = {
     }
 };
 
-module.exports = commentController;
+module.exports = thoughtController;
